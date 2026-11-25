@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: does-not-trigger-on-gauge-power-wiring
+expected_outcome: |
+  A 12 V wiring question that mentions a truck and a gauge but carries no data. The canbus skill is not
+  loaded, and the answer covers wire size, fusing and a switched supply.

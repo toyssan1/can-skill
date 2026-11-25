@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: explains-truncated-vin-trace
+expected_outcome: |
+  The answer decodes coolant temperature 88 degC, engine speed 750 rpm, two stored DTCs P0133 and U0100,
+  and the negative response 7F 22 11 (service 0x22 not supported by this ECU). It explains that the VIN
+  response is an ISO-TP first frame announcing 20 bytes and that the logger must send a flow control frame
+  (30 00 00 ...) on 0x7E0 to receive the consecutive frames.

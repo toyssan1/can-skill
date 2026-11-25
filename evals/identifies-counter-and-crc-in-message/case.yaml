@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: identifies-counter-and-crc-in-message
+expected_outcome: |
+  The answer finds that message 0x0C9 carries a rolling counter in the low nibble of byte 4 and a checksum in
+  byte 7 that is CRC-8 SAE J1850 (polynomial 0x1D, initial value 0xFF, final XOR 0xFF) over bytes 0-6, and
+  that engine speed is in bytes 0-1 (most likely a big-endian 16-bit value, which this idle capture cannot
+  prove because byte 0 never changes). It provides code that increments the counter
+  and computes the CRC for each transmitted frame, and the code's CRC reproduces the checksums in the
+  capture.
+context:
+  scaffold_script: place-files.sh

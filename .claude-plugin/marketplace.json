@@ -1,0 +1,14 @@
+{
+  "name": "canbus-skill",
+  "owner": {
+    "name": "canbus-skill contributors"
+  },
+  "description": "CAN bus, OBD-II and vehicle-network skill for coding agents.",
+  "plugins": [
+    {
+      "name": "canbus",
+      "source": "./",
+      "description": "CAN bus expertise: protocol, OBD-II, UDS, J1939, CANopen, reverse engineering, controllers and transceivers, with analysis scripts."
+    }
+  ]
+}

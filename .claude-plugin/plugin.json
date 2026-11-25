@@ -1,0 +1,10 @@
+{
+  "name": "canbus",
+  "version": "1.0.0",
+  "description": "CAN bus expertise for coding agents: Classical CAN and CAN FD, OBD-II, UDS, ISO-TP, J1939, CANopen, reverse engineering, and controller/transceiver hardware, with bit-timing, log-analysis and diagnostic-decoding scripts.",
+  "author": {
+    "name": "canbus-skill contributors"
+  },
+  "license": "MIT",
+  "keywords": ["can", "canbus", "can-fd", "obd2", "uds", "isotp", "j1939", "canopen", "automotive", "embedded", "reverse-engineering", "socketcan"]
+}

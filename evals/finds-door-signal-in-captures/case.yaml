@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: finds-door-signal-in-captures
+expected_outcome: |
+  The answer finds the two periodic bits that follow the door exactly, 0x3B3 byte 1 bit 2 (mask 0x04) and
+  0x4A8 byte 0 bit 7 (mask 0x80), and recommends one, with evidence from the two logs. It separates them
+  from the looser changes (0x3B3 byte 2 bit 0 stays set for about 1.5 s after closing; 0x6B2 is sent only
+  on change) and does not mistake the counter or checksum bytes of 0x0C9 / 0x2D0 for the door. It gives a
+  valid DBC for the bit it recommends: start bit 10, length 1 in message 947 (length 4), or start bit 7,
+  length 1 in message 1192 (length 6).
+context:
+  scaffold_script: place-files.sh

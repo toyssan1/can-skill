@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: computes-mcp2515-registers-for-j1939
+expected_outcome: |
+  The answer gives CNF1/CNF2/CNF3 for an 8 MHz MCP2515 that produce exactly 250 kbit/s with 16 time quanta and
+  an 87.5 % sample point: CNF1 with BRP field 0 (prescaler 1, TQ 250 ns), CNF2 with BTLMODE set and
+  PRSEG + PHSEG1 = 13 TQ, CNF3 with PHSEG2 = 2 TQ (for example CNF1=0x00, CNF2=0xAE or 0xBC, CNF3=0x01).
+  It tells the user to run the MCP2515 in listen-only mode and not to add termination to the existing bus.

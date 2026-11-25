@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: decodes-j1939-frames-and-dm1
+expected_outcome: |
+  The answer recognises SAE J1939 and decodes: EEC1 (PGN 61444) engine speed 621 rpm; ET1 (PGN 65262) coolant
+  temperature 70 degC; CCVS (PGN 65265) wheel-based speed 50 km/h; DM1 (PGN 65226) with the amber warning
+  lamp on and one active fault, SPN 110 (engine coolant temperature) with FMI 3 (voltage above normal or
+  shorted high), occurrence count 1. All from source address 0 (engine).

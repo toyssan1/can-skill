@@ -1,0 +1,40 @@
+VERSION ""
+
+NS_ :
+
+BS_:
+
+BU_: ECM BCM TOOL
+
+BO_ 201 ENGINE_1: 8 ECM
+ SG_ EngineSpeed : 7|16@0+ (0.25,0) [0|16383.75] "rpm" TOOL
+ SG_ ThrottlePos : 23|8@0+ (0.4,0) [0|102] "%" TOOL
+ SG_ CoolantTemp : 31|8@0+ (1,-40) [-40|215] "degC" TOOL
+ SG_ Counter : 32|4@1+ (1,0) [0|15] "" TOOL
+ SG_ Checksum : 56|8@1+ (1,0) [0|255] "" TOOL
+
+BO_ 947 BODY_1: 4 BCM
+ SG_ DriverDoorOpen : 10|1@1+ (1,0) [0|1] "" TOOL
+ SG_ GearSelected : 16|3@1+ (1,0) [0|7] "" TOOL
+ SG_ SteeringAngle : 24|8@1- (1.5,0) [-192|190.5] "deg" TOOL
+
+BO_ 1200 MUX_EXAMPLE: 8 ECM
+ SG_ Page M : 0|8@1+ (1,0) [0|255] "" TOOL
+ SG_ CellVoltage1 m0 : 8|16@1+ (0.001,0) [0|65.535] "V" TOOL
+ SG_ CellTemp1 m1 : 8|8@1+ (1,-40) [-40|215] "degC" TOOL
+
+BO_ 2566844158 ET1: 8 ECM
+ SG_ EngineCoolantTemp : 0|8@1+ (1,-40) [-40|210] "degC" TOOL
+
+CM_ BO_ 201 "Example powertrain message, 10 ms";
+CM_ SG_ 201 EngineSpeed "Big-endian in bytes 0-1. Verified against OBD-II PID 0C on <vehicle, date>";
+CM_ SG_ 201 Checksum "CRC-8 SAE J1850 over bytes 0-6";
+CM_ BO_ 2566844158 "J1939 PGN 65262: 29-bit ID 0x18FEEEFE with bit 31 set to mark it extended";
+
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 201 10;
+BA_ "GenMsgCycleTime" BO_ 947 100;
+
+VAL_ 947 GearSelected 0 "P" 1 "R" 2 "N" 3 "D" ;
+VAL_ 947 DriverDoorOpen 0 "closed" 1 "open" ;

@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: finds-speed-signal-from-obd-reference
+expected_outcome: |
+  The answer uses the OBD-II vehicle speed responses (PID 0D on 0x7E8) in the logs as the reference and finds
+  the broadcast speed signal in message 0x1A0: a 12-bit little-endian unsigned field starting at bit 4
+  (DBC 4|12@1+) with scale 0.1 km/h per bit and offset 0. It notes that 0x2F1 byte 0 carries a coarser
+  1 km/h copy. It validates the result on the second log rather than only the one it was derived from,
+  states its confidence, and mentions the start-up frames carrying 0xFFFF (not available).
+context:
+  scaffold_script: place-files.sh

@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: selects-canfd-transceiver-and-timing
+expected_outcome: |
+  The answer rejects the SN65HVD230 (1 Mbit/s classical part) and recommends a CAN FD rated transceiver
+  with a VIO pin for 3.3 V logic (for example TJA1051T/3, TJA1044GT/3, TCAN1042V/TCAN1051V/TCAN1044V,
+  MCP2562FD, ATA6561/ATA6563). It gives timing values that are arithmetically exact for a 40 MHz clock
+  with 80% sample points and the same prescaler in both phases (for example prescaler 1 with 63/16 nominal
+  and 15/4 data, or prescaler 2 with 31/8 and 7/2), tells the user to enable transmitter delay
+  compensation, and covers practical points such as the standby pin and not adding termination to an
+  existing vehicle bus.
