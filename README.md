@@ -27,12 +27,12 @@ Two habits make the answers better:
 
 ## Install
 
-Pick the one line that matches how you use Claude. In the commands below, replace `OWNER/REPO` with this repository's path on GitHub.
+Pick the one that matches how you use Claude.
 
 ### Claude Code (recommended)
 
 ```bash
-claude plugin marketplace add OWNER/REPO
+claude plugin marketplace add toyssan1/can-skill
 claude plugin install canbus@canbus-skill
 ```
 
@@ -41,23 +41,23 @@ Start a new session afterwards. To update later: `claude plugin marketplace upda
 ### Claude Code, without the plugin system
 
 ```bash
-git clone https://github.com/OWNER/REPO
+git clone https://github.com/toyssan1/can-skill
 mkdir -p ~/.claude/skills
-cp -r REPO/skills/canbus ~/.claude/skills/
+cp -r can-skill/skills/canbus ~/.claude/skills/
 ```
 
 That installs it for all your projects. To install it for one project only, run this from that project's folder instead (give the path to wherever you cloned the repository):
 
 ```bash
 mkdir -p .claude/skills
-cp -r /path/to/REPO/skills/canbus .claude/skills/
+cp -r /path/to/can-skill/skills/canbus .claude/skills/
 ```
 
 ### claude.ai
 
 ```bash
-git clone https://github.com/OWNER/REPO
-cd REPO/skills
+git clone https://github.com/toyssan1/can-skill
+cd can-skill/skills
 zip -r canbus.zip canbus -x "*/__pycache__/*" "*.DS_Store"
 ```
 
@@ -72,8 +72,8 @@ On Team and Enterprise plans an owner can switch off user-created skills. Anthro
 ### Other agents that support Agent Skills
 
 ```bash
-npx skills add OWNER/REPO --list            # see what the repository offers, installs nothing
-npx skills add OWNER/REPO --skill canbus
+npx skills add toyssan1/can-skill --list            # see what the repository offers, installs nothing
+npx skills add toyssan1/can-skill --skill canbus
 ```
 
 This uses the open-source [`skills` installer](https://github.com/vercel-labs/skills) and needs Node.js. The agent must support Agent Skills and be able to run Python scripts; the installer's own documentation lists the agents it knows. Without Node.js, copy the `skills/canbus` folder into the directory your agent reads skills from.
@@ -116,7 +116,7 @@ The agent runs these for you, and they also work by themselves from a clone of t
 | `isotp_decode.py` | Rebuilds multi-frame diagnostic messages and labels them | `capture.log` |
 
 ```bash
-cd REPO
+cd can-skill
 python3 skills/canbus/scripts/can_log_analyze.py baseline.log --diff action.log
 python3 skills/canbus/scripts/can_bit_timing.py --help          # every script has --help
 ```
